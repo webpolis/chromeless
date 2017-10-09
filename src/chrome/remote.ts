@@ -2,6 +2,10 @@ import { Chrome, ChromelessOptions, Command, RemoteOptions } from '../types'
 import { connect as mqtt, MqttClient } from 'mqtt'
 import * as cuid from 'cuid'
 import * as got from 'got'
+import * as debug from 'debug'
+
+const elog = debug('yb-chromeless:ERROR');
+const log = debug('yb-chromeless:LOG');
 
 interface RemoteResult {
   value?: any
@@ -89,13 +93,13 @@ export default class RemoteChrome implements Chrome {
         this.channel = channel
 
         if (this.options.debug) {
-          channel.on('error', error => console.log('WebSocket error', error))
-          channel.on('offline', () => console.log('WebSocket offline'))
+          channel.on('error', error => ('WebSocket error', error))
+          channel.on('offline', () => log('WebSocket offline'))
         }
 
         channel.on('connect', () => {
           if (this.options.debug) {
-            console.log('Connected to message broker.')
+            log('Connected to message broker.')
           }
 
           channel.subscribe(this.TOPIC_CONNECTED, { qos: 1 }, () => {
@@ -154,7 +158,7 @@ export default class RemoteChrome implements Chrome {
     await this.connectionPromise
 
     if (this.options.debug) {
-      console.log(`Running remotely: ${JSON.stringify(command)}`)
+      log(`Running remotely: ${JSON.stringify(command)}`)
     }
 
     const promise = new Promise<T>((resolve, reject) => {
