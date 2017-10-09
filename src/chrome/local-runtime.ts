@@ -107,8 +107,8 @@ export default class LocalRuntime {
         return this.mousedown(command.selector)
       case 'mouseup':
         return this.mouseup(command.selector)
-        case 'mousemove':
-          return this.mousemove(command.selector)
+      case 'mousemove':
+        return this.mousemove(command.selector)
       case 'focus':
         return this.focus(command.selector)
       case 'clearInput':
