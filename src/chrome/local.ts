@@ -41,7 +41,7 @@ export default class LocalChrome implements Chrome {
       port,
       chromeFlags: this.options.chromeFlags,
       chromePath: this.options.chromePath,
-      userDataDir: this.options.userDataDir
+      userDataDir: this.options.userDataDir,
     })
     const target = await CDP.New({
       port,
