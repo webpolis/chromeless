@@ -93,7 +93,7 @@ export default class RemoteChrome implements Chrome {
         this.channel = channel
 
         if (this.options.debug) {
-          channel.on('error', error => ('WebSocket error', error))
+          channel.on('error', error => elog(error))
           channel.on('offline', () => log('WebSocket offline'))
         }
 
