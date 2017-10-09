@@ -1,15 +1,15 @@
 {
-  "name": "webpolis-chromeless",
+  "name": "yb-chromeless",
   "version": "1.4.1",
   "description": "🖥 Chrome automation made simple. Runs locally or headless on AWS Lambda.",
-  "homepage": "https://github.com/webpolis/chromeless",
+  "homepage": "https://github.com/webpolis/yb-chromeless",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/webpolis/chromeless.git"
+    "url": "https://github.com/webpolis/yb-chromeless.git"
   },
   "bug": {
-    "url": "https://github.com/webpolis/chromeless/issues"
+    "url": "https://github.com/webpolis/yb-chromeless/issues"
   },
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
