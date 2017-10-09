@@ -1,4 +1,4 @@
-# YbChromeless (Improved version of [Chromeless](https://github.com/graphcool/chromeless)) 
+# YbChromeless (Improved version of [Chromeless](https://github.com/graphcool/chromeless))
 [![npm version](https://badge.fury.io/js/chromeless.svg)](https://badge.fury.io/js/chromeless) [![CircleCI](https://circleci.com/gh/graphcool/chromeless.svg?style=shield)](https://circleci.com/gh/graphcool/chromeless) [![Greenkeeper badge](https://badges.greenkeeper.io/graphcool/chromeless.svg)](https://greenkeeper.io/)
 
 Chrome automation made simple. Runs locally or headless on AWS Lambda. (**[See Demo](https://chromeless.netlify.com/)**)
@@ -153,6 +153,7 @@ const chromeless = new Chromeless({
 - [`refresh()`](docs/api.md#api-refresh) - Not implemented yet
 - [`mousedown(selector: string)`](docs/api.md#api-mousedown)
 - [`mouseup(selector: string)`](docs/api.md#api-mouseup)
+- [`mousemove(selector: string)`](docs/api.md#api-mousemove)
 - [`scrollTo(x: number, y: number)`](docs/api.md#api-scrollto)
 - [`scrollToElement(selector: string)`](docs/api.md#api-scrolltoelement)
 - [`setHtml(html: string)`](docs/api.md#api-sethtml)
