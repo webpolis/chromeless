@@ -1,3 +1,4 @@
+import debug from 'debug'
 import {
   Client,
   Command,
@@ -39,6 +40,9 @@ import {
   isS3Configured,
   uploadToS3,
 } from '../util'
+
+const elog = debug('yb-chromeless:ERROR');
+const log = debug('yb-chromeless:LOG');
 
 export default class LocalRuntime {
   private client: Client
@@ -498,7 +502,7 @@ export default class LocalRuntime {
 
   private log(msg: string): void {
     if (this.chromelessOptions.debug) {
-      console.log(msg)
+      log(msg)
     }
   }
 }
