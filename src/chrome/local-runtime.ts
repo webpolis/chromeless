@@ -328,6 +328,7 @@ export default class LocalRuntime {
 
       const { scale } = this.chromelessOptions.viewport
       if (this.chromelessOptions.implicitMouseFocus) {
+        this.log(`type(): Focusing mouse on ${selector}`)
         await mousemove(this.client, selector, scale)
         await mousedown(this.client, selector, scale)
         await mouseup(this.client, selector, scale)
