@@ -31,6 +31,7 @@ import {
   version,
   mousedown,
   mouseup,
+  mousemove,
   focus,
   clearInput,
   setFileInput,
@@ -106,6 +107,8 @@ export default class LocalRuntime {
         return this.mousedown(command.selector)
       case 'mouseup':
         return this.mouseup(command.selector)
+        case 'mousemove':
+          return this.mousemove(command.selector)
       case 'focus':
         return this.focus(command.selector)
       case 'clearInput':
@@ -240,6 +243,26 @@ export default class LocalRuntime {
     const { scale } = this.chromelessOptions.viewport
     await mouseup(this.client, selector, scale)
     this.log(`Mouseup on ${selector}`)
+  }
+
+  private async mousemove(selector: string): Promise<void> {
+    if (this.chromelessOptions.implicitWait) {
+      this.log(`mousemove(): Waiting for ${selector}`)
+      await waitForNode(
+        this.client,
+        selector,
+        this.chromelessOptions.waitTimeout,
+      )
+    }
+
+    const exists = await nodeExists(this.client, selector)
+    if (!exists) {
+      throw new Error(`mousemove(): node for selector ${selector} doesn't exist`)
+    }
+
+    const { scale } = this.chromelessOptions.viewport
+    await mousemove(this.client, selector, scale)
+    this.log(`Mousemove on ${selector}`)
   }
 
   private async setHtml(html: string): Promise<void> {

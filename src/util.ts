@@ -401,6 +401,21 @@ export async function mouseup(client: Client, selector: string, scale: number) {
   })
 }
 
+export async function mousemove(client: Client, selector: string, scale: number) {
+  const clientRect = await getClientRect(client, selector)
+  const { Input } = client
+
+  const options = {
+    x: Math.round((clientRect.left + clientRect.width / 2) * scale),
+    y: Math.round((clientRect.top + clientRect.height / 2) * scale),
+  }
+
+  await Input.dispatchMouseEvent({
+    ...options,
+    type: 'mouseMoved',
+  })
+}
+
 function getUrlFromCookie(cookie: Cookie) {
   const domain = cookie.domain.slice(1, cookie.domain.length)
   return `https://${domain}`
