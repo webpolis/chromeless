@@ -179,6 +179,11 @@ export default class LocalRuntime {
     if (this.chromelessOptions.scrollBeforeClick) {
       await scrollToElement(this.client, selector)
     }
+
+    if (this.chromelessOptions.implicitMouseFocus) {
+      await mousemove(this.client, selector, scale)
+    }
+
     await click(this.client, selector, scale)
     this.log(`Clicked on ${selector}`)
   }
@@ -200,6 +205,12 @@ export default class LocalRuntime {
         this.chromelessOptions.waitTimeout,
       )
     }
+
+    const { scale } = this.chromelessOptions.viewport
+    if (this.chromelessOptions.implicitMouseFocus) {
+      await mousemove(this.client, selector, scale)
+    }
+
     return scrollToElement(this.client, selector)
   }
 
@@ -284,6 +295,11 @@ export default class LocalRuntime {
       throw new Error(`focus(): node for selector ${selector} doesn't exist`)
     }
 
+    const { scale } = this.chromelessOptions.viewport
+    if (this.chromelessOptions.implicitMouseFocus) {
+      await mousemove(this.client, selector, scale)
+    }
+
     await focus(this.client, selector)
     this.log(`Focus on ${selector}`)
   }
@@ -302,6 +318,13 @@ export default class LocalRuntime {
       const exists = await nodeExists(this.client, selector)
       if (!exists) {
         throw new Error(`type(): Node not found for selector: ${selector}`)
+      }
+
+      const { scale } = this.chromelessOptions.viewport
+      if (this.chromelessOptions.implicitMouseFocus) {
+        await mousemove(this.client, selector, scale)
+        await mousedown(this.client, selector, scale)
+        await mouseup(this.client, selector, scale)
       }
     }
     await type(this.client, text, selector)

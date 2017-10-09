@@ -8,7 +8,8 @@ Chromeless provides TypeScript typings.
 
 - `debug: boolean` Show debug output — Default: `false`
 - `remote: boolean` Use remote chrome process — Default: `false`
-- `implicitWait: boolean` Wait for element to exist before executing commands — Default: `false`
+- `implicitWait: boolean` Wait for element to exist before executing commands — Default: `true`
+- `implicitMouseFocus: boolean` Move mouse over element before executing commands - Default: `true`
 - `waitTimeout: number` Time in ms to wait for element to appear — Default: `10000`
 - `scrollBeforeClick: boolean` Scroll to element before clicking, usefull if element is outside of viewport — Default: `false`
 - `viewport: any` Viewport dimensions — Default: `{width: 1440, height: 900, scale: 1}`
@@ -34,6 +35,7 @@ Chromeless provides TypeScript typings.
 - [`refresh()`](#api-refresh) - Not implemented yet
 - [`mousedown(selector: string)`](#api-mousedown)
 - [`mouseup(selector: string)`](#api-mouseup)
+- [`mousemove(selector: string)`](#api-mousemove)
 - [`scrollTo(x: number, y: number)`](#api-scrollto)
 - [`scrollToElement(selector: string)`](#api-scrolltoelement)
 - [`setHtml(html: string)`](#api-sethtml)
@@ -303,6 +305,23 @@ __Example__
 
 ```js
 await chromeless.mouseup('#placeholder')
+```
+
+---------------------------------------
+
+<a name="api-mousemove" />
+
+### mousemove(selector: string): Chromeless<T>
+
+Send mousemove event on something in the DOM.
+
+__Arguments__
+- `selector` - DOM selector for element to send mousemove event
+
+__Example__
+
+```js
+await chromeless.mousemove('#placeholder')
 ```
 
 ---------------------------------------
