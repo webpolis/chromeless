@@ -2,14 +2,7 @@ import * as fs from 'fs'
 import * as os from 'os'
 import * as path from 'path'
 import * as cuid from 'cuid'
-import {
-  Client,
-  Cookie,
-  DeviceMetrics,
-  PdfOptions,
-  BoxModel,
-  Viewport,
-} from './types'
+import { Client, Cookie, DeviceMetrics, PdfOptions, BoxModel, Viewport, Headers } from './types'
 import * as CDP from 'chrome-remote-interface'
 import * as AWS from 'aws-sdk'
 
@@ -368,6 +361,14 @@ export async function setCookies(
       url: getUrlFromCookie(cookie),
     })
   }
+}
+
+export async function setExtraHTTPHeaders(
+  client: Client,
+  headers: Headers,
+): Promise<void> {
+  const { Network } = client
+  await Network.setExtraHTTPHeaders({ headers })
 }
 
 export async function mousedown(

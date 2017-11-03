@@ -133,6 +133,10 @@ export type Command =
       html: string
     }
   | {
+      type: 'setExtraHTTPHeaders'
+      headers: Headers
+    }
+  | {
       type: 'press'
       keyCode: number
       count?: number
@@ -188,6 +192,8 @@ export type Command =
       selector: string
       files: string[]
     }
+
+export type Headers = Record<string, string>
 
 export interface Cookie {
   url?: string
