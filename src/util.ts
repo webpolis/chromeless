@@ -206,7 +206,7 @@ export async function evaluate<T>(
   if (result && result.exceptionDetails) {
     throw new Error(
       result.exceptionDetails.exception.value ||
-        result.exceptionDetails.exception.description,
+      result.exceptionDetails.exception.description,
     )
   }
 
@@ -421,6 +421,21 @@ export async function mousemove(
     x: Math.round((clientRect.left + clientRect.width / 2) * scale),
     y: Math.round((clientRect.top + clientRect.height / 2) * scale),
   }
+
+  await Input.dispatchMouseEvent({
+    ...options,
+    type: 'mouseMoved',
+  })
+}
+
+export async function mousemoveTo(
+  client: Client,
+  x: number,
+  y: number
+) {
+  const { Input } = client
+
+  const options = { x, y }
 
   await Input.dispatchMouseEvent({
     ...options,

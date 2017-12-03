@@ -179,6 +179,12 @@ export type Command =
       type: 'mousemove'
       selector: string
     }
+  |
+    {
+      type: 'mousemoveTo'
+      x: number
+      y: number
+    }
   | {
       type: 'focus'
       selector: string

@@ -35,6 +35,7 @@ import {
   mousedown,
   mouseup,
   mousemove,
+  mousemoveTo,
   focus,
   clearInput,
   setFileInput,
@@ -284,6 +285,11 @@ export default class LocalRuntime {
     const { scale } = this.chromelessOptions.viewport
     await mousemove(this.client, selector, scale)
     this.log(`Mousemove on ${selector}`)
+  }
+
+  private async mousemoveTo(x: number, y: number): Promise<void> {
+    await mousemoveTo(this.client, x, y)
+    this.log(`Mousemove to ${x},${y}`)
   }
 
   private async setHtml(html: string): Promise<void> {
