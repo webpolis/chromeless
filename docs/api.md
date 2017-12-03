@@ -36,6 +36,7 @@ Chromeless provides TypeScript typings.
 - [`mousedown(selector: string)`](#api-mousedown)
 - [`mouseup(selector: string)`](#api-mouseup)
 - [`mousemove(selector: string)`](#api-mousemove)
+- [`mousemoveTo(x: number, y: number)`](#api-mousemoveTo)
 - [`scrollTo(x: number, y: number)`](#api-scrollto)
 - [`scrollToElement(selector: string)`](#api-scrolltoelement)
 - [`setHtml(html: string)`](#api-sethtml)
@@ -174,7 +175,7 @@ __Arguments__
 __Example__
 
 ```js
-await chromeless.wait(() => { 
+await chromeless.wait(() => {
   return new Promise((resolve, reject) => {
     // do something async, setTimeout...
     resolve();
@@ -331,6 +332,23 @@ await chromeless.mousemove('#placeholder')
 
 ---------------------------------------
 
+<a name="api-mousemoveTo" />
+
+### mousemoveTo(x: number, y: number): Chromeless<T>
+
+Send mousemove event on coordinates.
+
+__Arguments__
+- `x` - X coordinate of the event relative to the main frame's viewport in CSS pixels.
+- `y` - Y coordinate of the event relative to the main frame's viewport in CSS pixels.
+
+__Example__
+
+```js
+await chromeless.mousemoveTo(50, 500)
+```
+
+---------------------------------------
 <a name="api-scrollto" />
 
 ### scrollTo(x: number, y: number): Chromeless<T>
