@@ -1,6 +1,6 @@
 {
   "name": "yb-chromeless",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "🖥 Chrome automation made simple. Runs locally or headless on AWS Lambda.",
   "homepage": "https://github.com/webpolis/yb-chromeless",
   "license": "MIT",
