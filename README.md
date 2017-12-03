@@ -154,6 +154,7 @@ const chromeless = new Chromeless({
 - [`mousedown(selector: string)`](docs/api.md#api-mousedown)
 - [`mouseup(selector: string)`](docs/api.md#api-mouseup)
 - [`mousemove(selector: string)`](docs/api.md#api-mousemove)
+- [`mousemoveTo(x: number, y: number)`](docs/api.md#api-mousemoveTo)
 - [`scrollTo(x: number, y: number)`](docs/api.md#api-scrollto)
 - [`scrollToElement(selector: string)`](docs/api.md#api-scrolltoelement)
 - [`setHtml(html: string)`](docs/api.md#api-sethtml)
